@@ -1,0 +1,4 @@
+echo -e ".venv*/\n__pycache__/\n*.pyc\n.DS_Store\n.env\n" >> .gitignore
+git rm -r --cached .venv311
+git add .gitignore
+git commit -m "chore: ignore venv/__pycache__"

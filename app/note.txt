@@ -1,0 +1,11 @@
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+winget install Cloudflare.cloudflared -e
+cloudflared tunnel --url http://localhost:8000
+
+
+# 1) รัน FastAPI ในเครื่อง
+uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 6
+
+# 2) อีกหน้าต่างหนึ่ง รันท่อ Cloudflare (ถ้าทำ named tunnel ไว้ชื่อ shakemap-api)
+cloudflared tunnel run shakemap-api
